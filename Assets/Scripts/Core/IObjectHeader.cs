@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public interface IObjectHeader
 {
     public int Id { get; set; }

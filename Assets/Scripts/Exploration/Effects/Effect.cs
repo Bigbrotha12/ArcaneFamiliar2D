@@ -27,7 +27,7 @@ public class Effect
                 break;
             case EffectSO.ActivationType.OnTurnStart:
                 targetOfEffect.ActiveEffects.Add(this);
-                GameObject.FindObjectOfType<BattleService>().OnStartTurn+= Activate;
+                //GameObject.FindObjectOfType<BattleService>().OnStartTurn+= Activate;
                 break;
             default:
                 break;
@@ -36,7 +36,7 @@ public class Effect
         switch (effectSO.durationType)
         {
             case EffectSO.DurationType.LimitedByTurns:
-                GameObject.FindObjectOfType<BattleService>().OnStartTurn += IncrementCounter;
+                //GameObject.FindObjectOfType<BattleService>().OnStartTurn += IncrementCounter;
                 break;
         }
     }
@@ -84,11 +84,11 @@ public class Effect
     {
         if(effectSO.activationType == EffectSO.ActivationType.OnTurnStart)
         {
-            GameObject.FindObjectOfType<BattleService>().OnStartTurn -= Activate;
+            //GameObject.FindObjectOfType<BattleService>().OnStartTurn -= Activate;
         }
         if(effectSO.durationType == EffectSO.DurationType.LimitedByTurns)
         {
-            GameObject.FindObjectOfType<BattleService>().OnStartTurn -= IncrementCounter;
+            //GameObject.FindObjectOfType<BattleService>().OnStartTurn -= IncrementCounter;
         }
     }
 }

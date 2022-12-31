@@ -49,11 +49,11 @@ namespace Characters
                     Debug.Log("Spell Equipped.");
                 } else
                 {
-                    GameManager.Instance.UInterface.QueueAlert("This spell is already equipped.");
+                    GameManager.Instance.UInterface.QueueAlert("This spell is already equipped.", 0);
                 }
             } else
             {
-                GameManager.Instance.UInterface.QueueAlert("You do not know this spell.");
+                GameManager.Instance.UInterface.QueueAlert("You do not know this spell.", 0);
             }
         }
 

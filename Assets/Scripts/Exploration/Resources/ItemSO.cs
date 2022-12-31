@@ -84,7 +84,7 @@ namespace Environment
 
         public bool Usable()
         {
-            if(Category is ItemCategory.NONE || Category is ItemCategory.CRAFTING || Category is ItemCategory.LEARNABLE)
+            if(Category is ItemCategory.None || Category is ItemCategory.CRAFTING || Category is ItemCategory.LEARNABLE)
             {
                 return false;
             }

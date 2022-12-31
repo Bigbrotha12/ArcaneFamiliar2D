@@ -63,8 +63,8 @@ public class BattleStageManager : MonoBehaviour
         }
 
         _battleActors.Add(GameObject.Instantiate(player.Prefab, _closestStage.PlayerPosition));
-        _battleActors.Add(GameObject.Instantiate(player.GetSpellCasterMain().Prefab, _closestStage.MainFamiliarPosition));
-        _battleActors.Add(GameObject.Instantiate(player.GetSpellCasterSupport().Prefab, _closestStage.SupportFamiliarPosition));
+        _battleActors.Add(GameObject.Instantiate(player.Familiars.MainFamiliar.Prefab, _closestStage.MainFamiliarPosition));
+        _battleActors.Add(GameObject.Instantiate(player.Familiars.SupportFamiliar.Prefab, _closestStage.SupportFamiliarPosition));
         
         // Instantiate enemy side
         if(enemies is null) { Debug.LogError("Error: Enemy list received is null."); return; }

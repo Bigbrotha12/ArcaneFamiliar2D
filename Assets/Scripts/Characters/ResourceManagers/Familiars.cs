@@ -33,10 +33,10 @@ namespace Characters
 
         public Familiars(List<FamiliarSO> initialFamiliars, int main, int support)
         {
-            Familiars = initialFamiliars is not null ? initialFamiliars : new List<FamiliarSO>();
+            FamiliarPacts = initialFamiliars is not null ? initialFamiliars : new List<FamiliarSO>();
             
-            if(FamiliarPacts.Count > main) { MainFamiliar = Familiars[main]; }
-            if (FamiliarPacts.Count > support) { SupportFamiliar = Familiars[support]; }
+            if(FamiliarPacts.Count > main) { MainFamiliar = FamiliarPacts[main]; }
+            if (FamiliarPacts.Count > support) { SupportFamiliar = FamiliarPacts[support]; }
 
         }
 
@@ -52,7 +52,7 @@ namespace Characters
             if (familiar is null) { return; }
             if(!FamiliarPacts.Contains(familiar)) 
             {
-                GameManager.Instance.UInterface.QueueAlert("You do not have a pact with this familiar.");
+                GameManager.Instance.UInterface.QueueAlert("You do not have a pact with this familiar.", 0);
                 return;
             }
             if(familiar == SupportFamiliar)
@@ -69,7 +69,7 @@ namespace Characters
             if (familiar is null) { return; }
             if(!FamiliarPacts.Contains(familiar)) 
             {
-                GameManager.Instance.UInterface.QueueAlert("You do not have a pact with this familiar.");
+                GameManager.Instance.UInterface.QueueAlert("You do not have a pact with this familiar.", 0);
                 return;
             }
             if(familiar == MainFamiliar)
@@ -89,7 +89,7 @@ namespace Characters
             }
             if(GameManager.Instance.Player.NewFamiliarProgress >= 4)
             {
-                GameManager.Instance.UInterface.QueueAlert("New Familiar Spirit Available for summoning.");
+                GameManager.Instance.UInterface.QueueAlert("New Familiar Spirit Available for summoning.", 0);
             }
         }
 

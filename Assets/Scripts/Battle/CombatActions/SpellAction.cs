@@ -43,7 +43,7 @@ namespace Battle
             {
                 // Damage calculation
                 int attackPower = (int)((float)caster.GetAdjustedStatistic(Statistic.Attack) * ((float)caster.GetAdjustedStatistic(Statistic.Arcane) / 100.0f)) + Spell.Power;
-                DamageType damageType = (DamageType)caster.GetSpellCasterMain().ElementType;
+                DamageType damageType = (DamageType)caster.SpellCasterFamiliar.MainFamiliar.ElementType;
                 ActionResult.Add("Spell's energy was transmuted to " + damageType.ToString() + ".");
                 
                 // Apply damage and effects
@@ -58,7 +58,7 @@ namespace Battle
                     int modifiedDamage = damage;
                     switch (damageModifier)
                     {
-                        case ResistanceType.NONE:
+                        case ResistanceType.None:
                             break;
                         case ResistanceType.VULNERABILITY:
                             ActionResult.Add("It's extremely effective!");

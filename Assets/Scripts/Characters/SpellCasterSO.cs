@@ -7,9 +7,9 @@ namespace Characters
     [CreateAssetMenu(fileName = "New SpellCaster", menuName = "Characters/New SpellCaster", order = 4)]
     public class SpellCasterSO : CombatantSO
     {
-        [SerializeField] private Familiars SpellCasterFamiliar;
-        [SerializeField] private SpellBook SpellCasterSpellBook;
-        [SerializeField] private LevelManager Level;
+        [SerializeField] public Familiars SpellCasterFamiliar;
+        [SerializeField] public SpellBook SpellCasterSpellBook;
+        [SerializeField] public LevelManager Level;
     
         public override int HP { get { return SpellCasterFamiliar.MainFamiliar.HP + SpellCasterFamiliar.SupportFamiliar.HP; } set { base.HP = value; }}
         public override int MP { get { return SpellCasterFamiliar.MainFamiliar.MP + SpellCasterFamiliar.SupportFamiliar.MP; } set { base.MP = value; }}

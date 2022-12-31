@@ -26,7 +26,7 @@ namespace Battle
             ActionResult.Clear();
             ActionResult.Add(Combatant.ObjectName + " is trying to run away.");
 
-            GameObject.FindObjectOfType<BattleService>().RunAway(Combatant);
+            //GameObject.FindObjectOfType<BattleService>().RunAway(Combatant);
         }
     }
 }

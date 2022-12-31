@@ -36,7 +36,7 @@ public class FamiliarCanvas : UICanvasBase
                 ActivateCanvas(false);
                 break;
             case 1:
-                GameManager.Instance.Player.SwapFamiliars();
+                GameManager.Instance.Player.Familiars.SwapFamiliars();
                 UpdateBondedFamiliarData();
                 break;
             default:
@@ -48,7 +48,7 @@ public class FamiliarCanvas : UICanvasBase
     protected void OnFamiliarClick(FamiliarSO familiar)
     {
         familiarDetailCanvas.ActivateCanvas(true);
-        (familiarDetailCanvas as DFamiliarCanvas).DisplayFamiliarDetails(familiar);
+        (familiarDetailCanvas as DetailFamiliarCanvas).DisplayFamiliarDetails(familiar);
     }
 
     private void UpdateBondedFamiliarData()
@@ -66,7 +66,7 @@ public class FamiliarCanvas : UICanvasBase
     private void RefreshFamiliarContainer()
     {
         ClearCanvas();
-        List<FamiliarSO> familiars = GameManager.Instance.Player.Familiars;
+        List<FamiliarSO> familiars = GameManager.Instance.Player.Familiars.FamiliarPacts;
         numFamiliars.text = "Pacts: " + familiars.Count.ToString();
         foreach (FamiliarSO familiar in familiars)
         {

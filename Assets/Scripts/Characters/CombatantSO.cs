@@ -11,6 +11,8 @@ namespace Characters
         public List<AbilitySO> Abilities;
         public List<Effect> ActiveEffects;
 
+        public int Health;
+        public int Mana;
         public delegate void HandleResourceChange(int previousValue, int newValue);
         public delegate void CombatantDefeat(CombatantSO combatant);
         public event HandleResourceChange OnHealthChanged;

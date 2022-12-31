@@ -11,5 +11,8 @@ namespace UserInterface
     public void QueueObject(IObjectHeader artifact, string[] options, ObjectResponse playerReply);
     public void QueueConversation(CharacterSO speaker, List<string> speech, float textSpeed);
     public void QueueConversation(CharacterSO speaker, List<string> speech, string[] options, Response playerReply, float textSpeed);
-    }
+    public void StartFade(bool fadeIn, float duration);
+    public void StartLoading();
+    public void FinishLoading();
+  }
 }

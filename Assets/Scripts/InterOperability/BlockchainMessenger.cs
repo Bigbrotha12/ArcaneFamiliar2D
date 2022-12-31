@@ -65,7 +65,7 @@ namespace InterOperability
                 // API.Response.remaining is 1 if there are more familiars to fetch
                 API_Response API_Response = JsonConvert.DeserializeObject<API_Response>(request.downloadHandler.text);
 
-                List<Familiars> result = new List<FamiliarMetadata>();
+                List<FamiliarMetadata> result = new List<FamiliarMetadata>();
                 foreach (API_Result token in API_Response.result) { result.Add(token.metadata); }
                 HasNext = API_Response.remaining == 1;
                 _cursor = API_Response.cursor;

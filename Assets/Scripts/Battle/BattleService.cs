@@ -33,7 +33,7 @@ namespace Battle
         {
             TurnCount = 0;
             Enemies = GameManager.Instance.Characters.CreateCombatant(enemies);
-            GetComponent<BattleStageManager>().EnterBattleMode(location, enemies);
+            //GetComponent<BattleStageManager>().EnterBattleMode(location, enemies);
             ActivateCombatants();
             InitiateTurn();
         }
@@ -150,7 +150,7 @@ namespace Battle
             if(runner == GameManager.Instance.Player)
             {
                 Debug.Log("Player ran way.");
-                EndBattle(BattleResult.NONE);
+                EndBattle(BattleResult.None);
             } 
             else if (Enemies.Contains(runner))
             {
@@ -166,7 +166,7 @@ namespace Battle
 
         private void EndBattle(BattleResult result)
         {
-            GetComponent<BattleStageManager>().ExitBattleMode();
+            //GetComponent<BattleStageManager>().ExitBattleMode();
 
             // Clear player modifiers
             GameManager.Instance.Player.OnCombatantDefeat -= EliminateCombatant;

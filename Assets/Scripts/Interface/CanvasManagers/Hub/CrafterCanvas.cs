@@ -48,7 +48,7 @@ public class CrafterCanvas : UICanvasBase
                 break;
             case 6:
                 CanvasButtons[index].interactable = false;
-                UpdateCraftResult(await _craftController.ValidateCrafting(CraftingMode.ITEM));
+                UpdateCraftResult(await _craftController.ValidateCrafting(CraftingMode.Item));
                 ClearIngredientSlot(CraftingMode.Item);
                 CanvasButtons[index].interactable = true;
                 break;
@@ -283,7 +283,7 @@ public class CrafterCanvas : UICanvasBase
                     break;
             }     
         } 
-        else if(mode == CraftingMode.ITEM)
+        else if(mode == CraftingMode.Item)
         {
             switch (index)
             {

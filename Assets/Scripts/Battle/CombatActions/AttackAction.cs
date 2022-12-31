@@ -45,7 +45,7 @@ namespace Battle
                 int modifiedDamage = damage;
                 switch (damageModifier)
                 {
-                    case ResistanceType.NONE:
+                    case ResistanceType.None:
                         break;
                     case ResistanceType.VULNERABILITY:
                         modifiedDamage *= 2;

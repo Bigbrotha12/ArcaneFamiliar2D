@@ -1,4 +1,5 @@
 using UnityEngine.Events;
+using UnityEngine;
 
 namespace Characters
 {
@@ -11,7 +12,7 @@ namespace Characters
         
         public int PlayerLevel 
         { 
-            get { return (int) Math.Floor(Math.Max(CalculateLevel(_totalEXP), 1)); }
+            get { return (int) Mathf.Floor(Mathf.Max(CalculateLevel(_totalEXP), 1)); }
         }
         public double LevelProgress 
         {
@@ -36,12 +37,12 @@ namespace Characters
             if (PlayerLevel > currentLevel) { LevelUp.Invoke(); }
         }
 
-        private double CalculateLevel(int exp)
+        private float CalculateLevel(int exp)
         {
             // Takes the earned EXP, calculates the level points
             // to assign to _level on logarithmic scale. Scale designed to take
             // 10,000 EXP to reach cap level 20.
-            return Math.Round(Math.Log(exp + 1) + (exp / 1000) + 1, 4);
+            return (float) System.Math.Round(Mathf.Log(exp + 1) + (exp / 1000) + 1, 4);
         }
     }
 }

@@ -52,8 +52,8 @@ namespace UserInterface
             currentMPValue.text = GameManager.Instance.Player.Mana.ToString() + " / " + GameManager.Instance.Player.MP.ToString();
 
             // Familiar section
-            mainAvatar.sprite = GameManager.Instance.Player.GetSpellCasterMain().Icon;
-            supportAvatar.sprite = GameManager.Instance.Player.GetSpellCasterSupport().Icon;
+            mainAvatar.sprite = GameManager.Instance.Player.Familiars.MainFamiliar.Icon;
+            supportAvatar.sprite = GameManager.Instance.Player.Familiars.SupportFamiliar.Icon;
 
             // Minimap
             // TODO

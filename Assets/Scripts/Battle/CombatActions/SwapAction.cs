@@ -28,7 +28,7 @@ namespace Battle
             ActionResult.Clear();
             ActionResult.Add("Switching to " + player.Familiars.SupportFamiliar.ObjectName + ".");
 
-            player.SwapFamiliars();
+            player.Familiars.SwapFamiliars();
         }
     }
 }

@@ -159,7 +159,7 @@ namespace Characters
                     return true;
                 } else
                 {
-                    GameManager.Instance.UInterface.QueueAlert("Item max stack size reached.");
+                    GameManager.Instance.UInterface.QueueAlert("Item max stack size reached.", 0);
                     return false;
                 }
             } else if(Stack.Count < SlotLimit)
@@ -168,7 +168,7 @@ namespace Characters
                 return true;
             } else
             {
-                GameManager.Instance.UInterface.QueueAlert("Inventory size limit reached.");
+                GameManager.Instance.UInterface.QueueAlert("Inventory size limit reached.", 0);
                 return false;
             }
         }

@@ -118,8 +118,8 @@ public class BattleHUD : UICanvasBase
         }
         StartCoroutine("DisplayStatus", statusEffects);
 
-        _mainName.text = GameManager.Instance.Player.GetSpellCasterMain().ObjectName;
-        _supportName.text = GameManager.Instance.Player.GetSpellCasterSupport().ObjectName;
+        _mainName.text = GameManager.Instance.Player.Familiars.MainFamiliar.ObjectName;
+        _supportName.text = GameManager.Instance.Player.Familiars.SupportFamiliar.ObjectName;
         _playerIcon.sprite = GameManager.Instance.Player.Icon;
         _environment.text = "Environment: " + GameManager.Instance.Player.Atlas.CurrentLocation.Plane.ToString();
     }
@@ -237,42 +237,42 @@ public class BattleHUD : UICanvasBase
 
     public void AddAttackAction(List<CombatantSO> targets)
     {
-        ICombatAction attackAction = new AttackCombatAction(GameManager.Instance.Player, targets);
+        ICombatAction attackAction = new AttackAction(GameManager.Instance.Player, targets);
         _actionList.Add(attackAction);
         
     }
 
     public void AddSpellAction(List<CombatantSO> targets, SpellSO spell)
     {
-        ICombatAction spellAction = new SpellCombatAction(GameManager.Instance.Player, targets, spell);
+        ICombatAction spellAction = new SpellAction(GameManager.Instance.Player, targets, spell);
         _actionList.Add(spellAction);
         StartActionSelection();
     }
 
     public void AddDefendAction()
     {
-        ICombatAction defendAction = new DefendCombatAction(GameManager.Instance.Player);
+        ICombatAction defendAction = new DefendAction(GameManager.Instance.Player);
         _actionList.Add(defendAction);
         StartActionSelection();
     }
 
     public void AddSwapAction()
     {
-        ICombatAction swapAction = new SwapCombatAction();
+        ICombatAction swapAction = new SwapAction();
         _actionList.Add(swapAction);
         StartActionSelection();
     }
 
     public void AddItemAction(List<CombatantSO> targets, ItemSO item)
     {
-        ICombatAction itemAction = new ItemCombatAction(targets, item);
+        ICombatAction itemAction = new ItemAction(targets, item);
         _actionList.Add(itemAction);
         StartActionSelection();
     }
 
     public void AddRunAction()
     {
-        ICombatAction itemAction = new RunCombatAction(GameManager.Instance.Player);
+        ICombatAction itemAction = new FleeAction(GameManager.Instance.Player);
         _actionList.Add(itemAction);
         StartActionSelection();
     }

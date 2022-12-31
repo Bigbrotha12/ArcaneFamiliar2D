@@ -13,11 +13,11 @@ namespace Characters
             {"Wind", ElementType.WIND}
         };
         public static Dictionary<string, Rarity> FamiliarRarity = new Dictionary<string, Rarity>(){
-            {"common", Rarity.COMMON},
-            {"uncommon", Rarity.UNCOMMON},
-            {"rare", Rarity.RARE},
-            {"secret", Rarity.SECRET},
-            {"legendary", Rarity.LEGENDARY},
+            {"common", Rarity.Common},
+            {"uncommon", Rarity.Uncommon},
+            {"rare", Rarity.Rare},
+            {"secret", Rarity.Secret},
+            {"legendary", Rarity.Legendary},
         };
         public static int HP_MAX = 500;
         public static int MP_MAX = 100;

@@ -48,12 +48,12 @@ public class InventoryCanvas : UICanvasBase
         itemDesc.text = item.Description;
         CanvasButtons[1].onClick.AddListener(() => 
         { 
-            GameManager.Instance.Player.Inventory.UseItem(item, InventoryStack.POUCH);
+            GameManager.Instance.Player.Inventory.UseItem(item, InventoryStack.Pouch);
             RefreshPouchBox();
         });
         CanvasButtons[2].onClick.AddListener(() => 
         { 
-            GameManager.Instance.Player.Inventory.RemoveItem(item, InventoryStack.POUCH);
+            GameManager.Instance.Player.Inventory.RemoveItem(item, InventoryStack.Pouch);
             RefreshPouchBox();
         });
     }

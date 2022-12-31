@@ -15,7 +15,6 @@ namespace Characters
             soundVolume = 50,
             resolutionOption = 0,
             windowMode = 0,
-            controls = null
         };
         public Preferences _currentPreferences;
 
@@ -24,7 +23,7 @@ namespace Characters
             _currentPreferences = initialPreferences is null ? defaultPreferences : initialPreferences;
         }
 
-        public PlayerSO CreatePlayer(UserData gameData, List<Familiars> familiars, WorldAtlas worldAtlas)
+        public PlayerSO CreatePlayer(UserData gameData, List<FamiliarMetadata> familiars, WorldAtlas worldAtlas)
         {
             if(gameData is null || familiars is null || worldAtlas is null) 
             {
@@ -33,26 +32,24 @@ namespace Characters
             }
 
             List<FamiliarSO> playerFamiliars = new List<FamiliarSO>();
-            foreach (Familiars familiar in familiars)
+            foreach (FamiliarMetadata familiar in familiars)
             {
                 playerFamiliars.Add(worldAtlas.GetWorldObject<FamiliarSO>(familiar.familiarId));
             }
 
             CharacterSO playerPrototype = worldAtlas.GetWorldObject<CharacterSO>(1);
-            PlayerSO mainCharacter = ScriptableObject.CreateInstance("PlayerSO");
+            PlayerSO mainCharacter = ScriptableObject.CreateInstance<PlayerSO>();
             
             mainCharacter.Inventory = new Inventory(UserDataEncoder.GetPlayerItems(gameData, worldAtlas));
             mainCharacter.SpellBook = new SpellBook(UserDataEncoder.GetPlayerSpells(gameData, worldAtlas), _currentPreferences.equippedSpells);
             mainCharacter.Atlas = new LocationAtlas(UserDataEncoder.GetPlayerLocations(gameData, worldAtlas));
             mainCharacter.RecipeBook = new RecipeBook(UserDataEncoder.GetPlayerRecipes(gameData, worldAtlas));
-            mainCharacter.Familiars = new Familiars(playerFamiliars);
+            mainCharacter.Familiars = new Familiars(playerFamiliars, _currentPreferences.mainFamiliar, _currentPreferences.supportFamiliar);
             mainCharacter.NewFamiliarProgress = UserDataEncoder.GetPlayerProgress(gameData);
             mainCharacter.Level = new LevelManager(UserDataEncoder.GetPlayerLevel(gameData));
             mainCharacter.Wallet = new Wallet(UserDataEncoder.GetMoneyBalance(gameData));
 
-            mainCharacter.Familiars.BondMainFamiliar(_currentPreferences.mainFamiliar);
-            mainCharacter.Familiars.BondSupportFamiliar(_currentPreferences.supportFamiliar);
-            mainCharacter.InitializeResources();
+            //mainCharacter.InitializeResources();
             return mainCharacter;
         }
 

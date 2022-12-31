@@ -32,7 +32,7 @@ namespace Battle
             ActionResult.Add(Combatant.ObjectName + " is using " + Item.ObjectName + ".");
 
             PlayerSO player = Combatant as PlayerSO;
-            if (player.Inventory.RemoveItem(Item, InventoryStack.POUCH))
+            if (player.Inventory.RemoveItem(Item, InventoryStack.Pouch))
             {
                 foreach (EffectSO itemEffect in Item.ItemEffects)
                 {

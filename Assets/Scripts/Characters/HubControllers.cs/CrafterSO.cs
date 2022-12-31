@@ -44,7 +44,7 @@ namespace Characters
                 return null;
             }
 
-            GameManager.Instance.UInterface.QueueAlert("Crafting in progress...");
+            GameManager.Instance.UInterface.QueueAlert("Crafting in progress...", 0);
 
             // Generate Variant
             int variant = 2 * option1 + option2;
@@ -90,12 +90,12 @@ namespace Characters
                     GameManager.Instance.Player.SpellBook.LearnNewSpell(newObject as SpellSO); 
                     if(await GameManager.Instance.SaveGame(false))
                     {
-                        GameManager.Instance.UInterface.QueueAlert("You created a new spell. \n" + newObject.ObjectName);
+                        GameManager.Instance.UInterface.QueueAlert("You created a new spell. \n" + newObject.ObjectName, 0);
                         return newObject;
                     } 
                     else
                     {
-                        GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.");
+                        GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.", 0);
                         GameManager.Instance.Player.SpellBook.RemoveSpell(newObject as SpellSO);
                         foreach (ItemSO item in _ingredientsHeld)
                         {
@@ -108,12 +108,12 @@ namespace Characters
                     GameManager.Instance.Player.Inventory.AddToAny(newObject as ItemSO);
                     if(await GameManager.Instance.SaveGame(false))
                     {
-                        GameManager.Instance.UInterface.QueueAlert("You created a new item. \n" + newObject.ObjectName);
+                        GameManager.Instance.UInterface.QueueAlert("You created a new item. \n" + newObject.ObjectName, 0);
                         return newObject;
                     } 
                     else
                     {
-                        GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.");
+                        GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.", 0);
                         GameManager.Instance.Player.Inventory.Storage.RemoveItem(newObject as ItemSO);
                         foreach (ItemSO item in _ingredientsHeld)
                         {
@@ -127,11 +127,11 @@ namespace Characters
                 if(await GameManager.Instance.SaveGame(false))
                 {
                     GameManager.Instance.Player.Speak(new List<string>(){"Oops, that didn't work as expected."});
-                    GameManager.Instance.UInterface.QueueAlert("Crafting attempt failed.");
+                    GameManager.Instance.UInterface.QueueAlert("Crafting attempt failed.", 0);
                 } 
                 else
                 {
-                    GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.");
+                    GameManager.Instance.UInterface.QueueAlert("Error: Could not establish communication with server./nEnsure you're connected to a network and try again.", 0);
                     
                     foreach (ItemSO item in _ingredientsHeld)
                     {

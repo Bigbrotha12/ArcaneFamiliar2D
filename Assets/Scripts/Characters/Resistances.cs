@@ -30,37 +30,37 @@ public class Resistances
                 break;
             case DamageType.FIRE:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
             case DamageType.WATER:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
             case DamageType.EARTH:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
             case DamageType.WIND:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
             case DamageType.HEAL:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
             case DamageType.PHYSICAL:
                 if(LightResistance < 0) return ResistanceType.VULNERABILITY;
-                if(LightResistance == 0) return ResistanceType.NONE;
+                if(LightResistance == 0) return ResistanceType.None;
                 if(LightResistance == 1) return ResistanceType.RESISTANCE;
                 if(LightResistance > 1) return ResistanceType.IMMUNITY;
                 break;
@@ -68,7 +68,7 @@ public class Resistances
                 Debug.LogError("Error: Invalid damage type.");
                 break;
         }
-        return ResistanceType.NONE;
+        return ResistanceType.None;
     }
 
     public void AddResistance(DamageType type)
